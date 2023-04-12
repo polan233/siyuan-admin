@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Top from "./Top"
 import Foot from "./Foot"
 import { Login } from './Login';
+import Page from "./Page"
 import './App.css';
 
 
@@ -15,7 +16,7 @@ function App() {
     body=<Login login={login} text={"shabi"}/>
   }
   else{
-    body=null
+    body=<Page/>
   }
   return (
     <div className="App">

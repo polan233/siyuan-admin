@@ -21,7 +21,7 @@ export function Login(props) {
         setTimeout(()=>{
             setLoading(false);
             login();
-        },2000)
+        },1000)
     }
 
     return (
