@@ -71,6 +71,7 @@ class Page extends React.Component{
         })
     }
     render(){
+      //console.log("page",this.state.selectMenu)
         return(
             <div className='page'>
                 <Layout>
@@ -78,7 +79,7 @@ class Page extends React.Component{
                         <Menu className='topMenu'  onClick={this.handleMenuClick} selectedKeys={[this.state.selectMenu]} mode="horizontal" items={items} />
                     </Header>
                     <Content style={contentStyle}>
-                        <FormTable/>
+                        <FormTable selectMenu={this.state.selectMenu} />
                     </Content>
                 </Layout>
             </div>

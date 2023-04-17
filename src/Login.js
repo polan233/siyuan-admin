@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {  UserOutlined,EyeTwoTone  } from '@ant-design/icons';
+import React, { useState } from 'react';
+import {  UserOutlined  } from '@ant-design/icons';
 import { Card, Space, Button,Input } from 'antd';
 import './App.css';
 
@@ -16,8 +16,8 @@ export function Login(props) {
     }
     const handleLogin=()=>{
         setLoading(true);
-        console.log("username:",userName);
-        console.log("password:",password);
+        //console.log("username:",userName);
+        //console.log("password:",password);
         setTimeout(()=>{
             setLoading(false);
             login();

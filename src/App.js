@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Top from "./Top"
 import Foot from "./Foot"
 import { Login } from './Login';
@@ -13,7 +13,7 @@ function App() {
     setLogged(true);
   }
   if(!logged){
-    body=<Login login={login} text={"shabi"}/>
+    body=<Login login={login}/>
   }
   else{
     body=<Page/>
