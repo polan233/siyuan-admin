@@ -19,17 +19,19 @@ function App() {
     body=<Page/>
   }
   return (
+    <>
     <div className="App">
       <header className="App-header">
         <Top/>
       </header>
 
         {body}
-
-      <footer>
-        <Foot/>
-      </footer>
+      <div class="push"></div>
     </div>
+    <footer>
+        <Foot/>
+    </footer>
+    </>
   );
 }
 

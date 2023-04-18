@@ -158,12 +158,10 @@ export class AuthorForm extends React.Component{
                     </Upload>
                     </Form.Item>
                     
-                    <Form.Item>
-                    <Button 
-                    style={{float:'left',marginLeft:"45px"}} 
-                    type="primary" 
-                    htmlType="submit"
-                    onClick={this.handleSubmit}
+                    <Form.Item label="提交按钮">
+                    <Button
+                    onClick={this.handleSubmit.bind(this)}
+                    type='primary'
                     >
                         提交
                     </Button>

@@ -5,6 +5,7 @@ import {
 import React from 'react';
 import { AuthorForm } from './AuthorForm';
 import { TextForm } from './TextForm';
+import { CityForm } from './CityForm';
 
 
 export default class FormTable extends React.Component{
@@ -32,10 +33,13 @@ export default class FormTable extends React.Component{
             else if(this.props.selectMenu=='text'){
                 content=<TextForm></TextForm>
             }
+            else if (this.props.selectMenu=='city'){
+                content=<CityForm></CityForm>
+            }
         }
         return (
             <>
-            <Radio.Group defaultValue="form" buttonStyle="solid" onChange={this.handleChangeMode} value={this.state.mode}>
+            <Radio.Group  defaultValue="form" buttonStyle="solid" onChange={this.handleChangeMode} value={this.state.mode}>
                 <Radio.Button value="form">插入模式</Radio.Button>
                 <Radio.Button value="table">查看模式</Radio.Button>
             </Radio.Group>

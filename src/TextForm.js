@@ -1,21 +1,16 @@
-import { PlusOutlined,LoadingOutlined } from '@ant-design/icons';
 import {
   Button,
   Form,
   Input,
-  Upload,
-  Space,
-  message,
   Radio,
   AutoComplete,
 } from 'antd';
 import React from 'react';
-import { uploadAuthorImg,handleError } from './axios/api';
+import AuthorIdPicker from './AuthorIdPicker';
+import PlaceIdPicker from './PlaceIdPicker';
 const { TextArea } = Input;
 
-const mockVal = (str, repeat = 1) => ({
-    value: str.repeat(repeat),
-});
+
 
 export class TextForm extends React.Component{
     constructor(props){
@@ -28,8 +23,6 @@ export class TextForm extends React.Component{
             content:"",
             textbook:"",
             type:1,
-            authorList:[],
-            placeList:[],
         }
     }
     handleTextName(e){
@@ -45,20 +38,6 @@ export class TextForm extends React.Component{
     handlePlaceId(data){
         this.setState({
             publish_place_id:data,
-        })
-    }
-    handleAuthorIdInput(text){
-        let list=[];
-        list=!text ? [] : [mockVal(text), mockVal(text, 2), mockVal(text, 3)];
-        this.setState({
-            authorList:list,
-        })
-    }
-    handlePlaceIdInput(text){
-        let list=[];
-        list=!text ? [] : [mockVal(text), mockVal(text, 2), mockVal(text, 3)];
-        this.setState({
-            placeList:list,
         })
     }
     handleSubmit(e){
@@ -107,13 +86,7 @@ export class TextForm extends React.Component{
                     </Form.Item>
                     
                     <Form.Item label="作者"> {/*输入姓名选择id*/}
-                    <AutoComplete
-                        options={this.state.authorList}
-                        onSelect={this.handleAuthorId.bind(this)}
-                        onSearch={this.handleAuthorIdInput.bind(this)}
-                        placeholder="请输入作者姓名然后选择对应id"
-                        onChange={this.handleAuthorId.bind(this)}
-                    />
+                    <AuthorIdPicker onChange={this.handleAuthorId.bind(this)}></AuthorIdPicker>
                     </Form.Item>
                     
                     <Form.Item label="发表时间">
@@ -121,13 +94,7 @@ export class TextForm extends React.Component{
                     </Form.Item>
 
                     <Form.Item label="发表地点">
-                    <AutoComplete
-                        options={this.state.placeList}
-                        onSelect={this.handlePlaceId.bind(this)}
-                        onSearch={this.handlePlaceIdInput.bind(this)}
-                        placeholder="请输入地名然后选择对应id"
-                        onChange={this.handlePlaceId.bind(this)}
-                    />
+                    <PlaceIdPicker onChange={this.handlePlaceId.bind(this)}></PlaceIdPicker>
                     </Form.Item>
 
                     <Form.Item label="课文内容">
@@ -145,12 +112,10 @@ export class TextForm extends React.Component{
                     </Radio.Group>
                     </Form.Item>
 
-                    <Form.Item>
-                    <Button 
-                    style={{float:'left',marginLeft:"45px"}} 
-                    type="primary" 
-                    htmlType="submit"
+                    <Form.Item label="提交按钮">
+                    <Button
                     onClick={this.handleSubmit.bind(this)}
+                    type='primary'
                     >
                         提交
                     </Button>

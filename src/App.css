@@ -1,10 +1,12 @@
 .App{
-  
   background-color: #fafafa;
-  z-index: 1;
- font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-'Noto Color Emoji';
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+  'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+  'Noto Color Emoji';
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto 0px;/*margin-bottom的负值等于footer高度*/
 }
 
 .Top{
@@ -28,12 +30,17 @@
 .TopSpace{
   width:300px;
 }
+.push{
+  height: 100%;
+  clear:both;
+  background-color: #fafafa;
+}
 .foot{
   width: 100%;
-  height: 100%;
   background-color: #91caff;
-  padding-top: 22px;
-  padding-bottom: 30px;
+  padding-top: 20px;
+  height: 120px;
+  clear:both;
 }
 .slogan{
   width:100%;
@@ -50,8 +57,11 @@
   align-self: flex-start;
 }
 
-html,body,#root,.App{
+html,body,#root{
 	height: 100%;
+  margin:0;
+  padding:0;
+  
 }
 
 
@@ -67,3 +77,4 @@ html,body,#root,.App{
 .form{
   margin: 0 auto;
 }
+
