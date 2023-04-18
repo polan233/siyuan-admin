@@ -3,6 +3,7 @@ import {
     Form,
     Input,
     Radio,
+    message,
 } from 'antd';
 import React from 'react';
 import TextIdPicker from './TextIdPicker';
@@ -12,14 +13,22 @@ export class ProblemForm extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            title:"",
-            answer:"",
-            text_id:"",
-            type:-1,
+            title:null,
+            answer:null,
+            text_id:null,
+            type:null,
         }
     }
 
     handleSubmit(e){
+        let values=Object.values(this.state);
+        for(let i=0;i<values.length;i++){
+            if(values[i]==null||values[i]==undefined||values[i]==""){
+                message.error("有未完成表项,请填写所有表项!")
+                return;
+            }
+        }
+        message.success("提交成功");
         console.log("Problem",this.state)
     }
     handleTitle(e){

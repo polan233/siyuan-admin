@@ -5,7 +5,7 @@ import {
   Input,
   Upload,
   Space,
-  message
+  message,
 } from 'antd';
 import React from 'react';
 import { uploadAuthorImg,handleError } from './axios/api';
@@ -41,10 +41,10 @@ export class AuthorForm extends React.Component{
         // Get this url from response in real world.
         getBase64(info.file.originFileObj, (url) => {
             this.setState({
-                loading:false,
-                imgUrl:url,
-                authorName:"",
-                authorInfo:"",
+                loading:null,
+                imgUrl:null,
+                authorName:null,
+                authorInfo:null,
             });
         });
         }
@@ -96,6 +96,14 @@ export class AuthorForm extends React.Component{
         this.setState({authorInfo:e.target.value});
     }
     handleSubmit(e){
+        let values=Object.values(this.state);
+        for(let i=0;i<values.length;i++){
+            if(values[i]==null||values[i]==undefined||values[i]==""){
+                message.error("有未完成表项,请填写所有表项!")
+                return;
+            }
+        }
+        message.success("提交成功");
         console.log("handleSubmit",this.state);
     }
     render(){

@@ -2,7 +2,7 @@ import {
   Button,
   Form,
   Input,
-
+  message,
 } from 'antd';
 import React from 'react';
 
@@ -11,9 +11,9 @@ export class CityForm extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            city_name:"",
-            lng:"",
-            lat:"",
+            city_name:null,
+            lng:null,
+            lat:null,
         }
     }
     handleCityName(e){
@@ -30,6 +30,14 @@ export class CityForm extends React.Component{
         })
     }
     handleSubmit(e){
+        let values=Object.values(this.state);
+        for(let i=0;i<values.length;i++){
+            if(values[i]==null||values[i]==undefined||values[i]==""){
+                message.error("有未完成表项,请填写所有表项!")
+                return;
+            }
+        }
+        message.success("提交成功");
         console.log("CityForm",this.state)
     }
     render(){

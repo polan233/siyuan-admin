@@ -4,6 +4,7 @@ import {
   Input,
   Radio,
   AutoComplete,
+  message,
 } from 'antd';
 import React from 'react';
 import AuthorIdPicker from './AuthorIdPicker';
@@ -16,13 +17,13 @@ export class TextForm extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            text_name:"",
-            author_id:"",
-            publish_time:"",
-            publish_place_id:"",
-            content:"",
-            textbook:"",
-            type:1,
+            text_name:null,
+            author_id:null,
+            publish_time:null,
+            publish_place_id:null,
+            content:null,
+            textbook:null,
+            type:null,
         }
     }
     handleTextName(e){
@@ -41,6 +42,14 @@ export class TextForm extends React.Component{
         })
     }
     handleSubmit(e){
+        let values=Object.values(this.state);
+        for(let i=0;i<values.length;i++){
+            if(values[i]==null||values[i]==undefined||values[i]==""){
+                message.error("有未完成表项,请填写所有表项!")
+                return;
+            }
+        }
+        message.success("提交成功");
         console.log("submit",this.state);
     }
     handlePublishTime(e){

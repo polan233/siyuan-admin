@@ -3,7 +3,7 @@ import {
     Form,
     Input,
     Radio,
-  
+    message,
 } from 'antd';
 import React from 'react';
 import AuthorIdPicker from './AuthorIdPicker';
@@ -14,15 +14,23 @@ export class EventForm extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            description:"",
-            author_id:"",
-            time:"",
-            place_id:"",
-            isBC:false,
+            description:null,
+            author_id:null,
+            time:null,
+            place_id:null,
+            isBC:null,
         }
     }
     
     handleSubmit(e){
+        let values=Object.values(this.state);
+        for(let i=0;i<values.length;i++){
+            if(values[i]==null||values[i]==undefined||values[i]==""){
+                message.error("有未完成表项,请填写所有表项!")
+                return;
+            }
+        }
+        message.success("提交成功");
         console.log("EventForm",this.state)
     }
     handleDesc(e){
