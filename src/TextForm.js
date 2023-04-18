@@ -59,12 +59,8 @@ export class TextForm extends React.Component{
         })
     }
     handleType(e){
-        let type=0;
-        if(e.target.value){
-            type=1;
-        }
         this.setState({
-            type:type,
+            type:e.target.value
         })
     }
     render(){
