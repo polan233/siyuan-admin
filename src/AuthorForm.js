@@ -126,15 +126,15 @@ export class AuthorForm extends React.Component{
                 layout="horizontal"
                 
                 >
-                    <Form.Item label="作者姓名">
+                    <Form.Item label="作者姓名" >
                     <Input value={this.state.authorName} onChange={this.handleAuthorNameChange} />
                     </Form.Item>
                     
-                    <Form.Item label="作者简介">
+                    <Form.Item label="作者简介" >
                     <TextArea rows={13} value={this.state.authorInfo} onChange={this.handleAuthorInfoChange}  />
                     </Form.Item>
                     
-                    <Form.Item label="作者图片" valuePropName="fileList">
+                    <Form.Item label="作者图片" valuePropName="fileList" >
                     <Upload
                         name="avatar"
                         listType="picture-card"
@@ -158,7 +158,7 @@ export class AuthorForm extends React.Component{
                     </Upload>
                     </Form.Item>
                     
-                    <Form.Item label="提交按钮">
+                    <Form.Item label="提交按钮" >
                     <Button
                     onClick={this.handleSubmit.bind(this)}
                     type='primary'

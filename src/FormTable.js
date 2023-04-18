@@ -7,6 +7,8 @@ import { AuthorForm } from './AuthorForm';
 import { TextForm } from './TextForm';
 import { CityForm } from './CityForm';
 import { EventForm } from './EventForm';
+import { DiscussionForm } from './DiscussionForm';
+import { ProblemForm } from './ProblemForm';
 
 
 export default class FormTable extends React.Component{
@@ -39,6 +41,12 @@ export default class FormTable extends React.Component{
             }
             else if (this.props.selectMenu=='event'){
                 content=<EventForm></EventForm>
+            }
+            else if (this.props.selectMenu=='discussion'){
+                content=<DiscussionForm></DiscussionForm>
+            }
+            else if (this.props.selectMenu=='problem'){
+                content=<ProblemForm></ProblemForm>
             }
         }
         return (
