@@ -4,7 +4,7 @@ import {AutoComplete,} from 'antd';
 const mockVal = (str, repeat = 1) => ({
     value: str+":"+"作者id"+repeat,
 });
-
+// to-do:使用后端接口查询作者姓名与作者id对应关系
 export default class AuthorIdPicker extends React.Component{
     constructor(props){
         super(props);
